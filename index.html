@@ -1,14 +1,164 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--preconnect está carregando a fonte-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 
+    <title>FotoBlog</title>
 </head>
 <body>
-    
+    <div id="app">
+
+        <header class="container">
+            <nav>
+                <img src="./assets/camera.svg" alt="camera icon"/>
+                <ul>
+                    <li>Home</li>
+                    <li>Galeria</li>
+                </ul>
+            </nav>
+
+
+            <form>
+                <div class="input-wrapper">
+                    <label for="search">Pesquise por imagens e coleções</label>  <!--leitor de tela-->
+                    <input for="search" type="text" placeholder="Pesquise por imagens e coleções"/>
+                </div>
+            </form>
+
+            <img class="avatar" src="https://randomuser.me/api/portraits/women/18.jpg" 
+            alt="imagem de uma mulher" /> <!--API = Application Programming Interface -->
+        </header>
+
+        <main> 
+            <div class="container">
+                <h1 >Galeria</h1>
+                <section class="gallery">
+                    
+                <figure class="item">        <!--imagem-->
+                    <img src="https://source.unsplash.com/random?a=18" alt="imagem aleatoria"/>
+                    
+                    <figcaption class="details"> <!--nome da imagem-->
+                        <h2>Workspace elétrica </h2>
+                    </figcaption>
+                    
+                    <div class="tag">
+                        <span>TAG</span>
+                    </div>                   
+                </figure>
+
+                <figure class="item">        
+                    <img src="https://source.unsplash.com/random?b=5" alt="imagem aleatoria"/>
+                    
+                    <figcaption class="details"> 
+                        <h2> Dark and red </h2>
+                    </figcaption>
+                    
+                    <div class="tag">
+                        <span>TAG</span>
+                    </div>                   
+                </figure>
+                
+                <figure class="item">        
+                    <img src="https://source.unsplash.com/random?c=16" alt="imagem aleatoria"/>
+                    
+                    <figcaption class="details"> 
+                        <h2> Organização e grids </h2>
+                    </figcaption>
+                    
+                    <div class="tag">
+                        <span>TAG</span>
+                    </div>                   
+                </figure>
+                
+                <figure class="item">        
+                    <img src="https://source.unsplash.com/random?d=17" alt="imagem aleatoria"/>
+                    
+                    <figcaption class="details"> 
+                        <h2>Colméia</h2>
+                    </figcaption>
+                    
+                    <div class="tag">
+                        <span>TAG</span>
+                    </div>                   
+                </figure>
+                
+                <figure class="item">        
+                    <img src="https://source.unsplash.com/random?e=8" alt="imagem aleatoria"/>
+
+                    <figcaption class="details"> 
+                        <h2>Setup de escritor </h2>
+                    </figcaption>
+                    
+                    <div class="tag">
+                        <span>TAG</span>
+                    </div>                   
+                </figure>
+                
+                <figure class="item">        
+                    <img src="https://source.unsplash.com/random?f=1" alt="imagem aleatoria"/>
+                    
+                    <figcaption class="details"> 
+                        <h2>Ergonomia e cores </h2>
+                    </figcaption>
+                    
+                    <div class="tag">
+                        <span>TAG</span>
+                    </div>                   
+                </figure>
+                
+                <figure class="item">        
+                    <img src="https://source.unsplash.com/random?g=1" alt="imagem aleatoria"/>
+                    
+                    <figcaption class="details"> 
+                        <h2> Show de luzes </h2>
+                    </figcaption>
+                    
+                    <div class="tag">
+                        <span>TAG</span>
+                    </div>                   
+                </figure>
+                
+                
+                <figure class="item">        
+                    <img src="https://source.unsplash.com/random?h=1" alt="imagem aleatoria"/>
+                    
+                    <figcaption class="details"> 
+                        <h2>Deep purple </h2>
+                    </figcaption>
+                    
+                    <div class="tag">
+                        <span>TAG</span>
+                    </div>                   
+                </figure> 
+
+
+                <figure class="item">        
+                    <img src="https://source.unsplash.com/random?i=1" alt="imagem aleatoria"/>
+                    
+                    <figcaption class="details"> 
+                        <h2>Multi-Screen</h2>
+                    </figcaption>
+                    
+                    <div class="tag">
+                        <span>TAG</span>
+                    </div>                   
+                </figure>
+                
+                
+            </section>
+        </div>
+        </main>
+        
+        <footer class="container">
+            <p>© 2023 - Rocketseat Explorer</p>
+        </footer> 
+        
+    </div>
 </body>
 </html>
