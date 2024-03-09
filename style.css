@@ -2,8 +2,154 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;  /* prefixo para suavisação de fonte */
+    -moz-osx-font-smoothing: grayscale;    
 }
 
 :root {
-    font-size: 62.5%;  /* = 10px */
+    font-size: 62.5%; 
+    --color-base-white: #FFFFFF;
+    --color-base-gray-100: #f5f5f5 ;
+    --color-base-gray-300: #8d8d99 ;
+    --color-base-gray-900: #202024 ;
+    --color-base-font : #3D3D3D ;
 }
+
+html,
+body,
+input {
+    font-family: "Mulish", sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+
+    background-color: var(--color-base-white);
+    color: var(--color-base-gray-900);
+}
+
+#app {
+    display: grid ;
+    grid-template-rows: max-content 1fr max-content ;   
+    
+    height: 100vh ;
+}
+
+.container{
+    padding: 1.6rem 3.2rem;
+    width: min(112rem, 100%);
+    margin: 0 auto;
+}
+
+main{
+    overflow-y: scroll;
+    scrollbar-gutter: stable both-edges;
+
+    background-color: var(--color-base-gray-100);
+}
+
+header,
+nav,
+ul  {
+    display:flex;
+    align-items: center;
+    gap: 7.2rem;
+
+    font-weight: 700;
+}
+
+header form {
+    flex: 1;
+}
+
+.input-wrapper label { 
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.input-wrapper input{
+    width: 100%;
+    height: 4.8rem;
+
+    padding: 1.6rem;
+
+    background-color: var(--color-base-gray-100);
+
+    border: none;
+    border-radius: .6rem;
+
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.input-wrapper input::placeholder {   /* cor de fonte em 3d */ 
+    color: var(--color-base-font);
+    opacity: 0.56;
+}
+
+nav ul {
+    list-style: none;
+    color: var(--color-base-gray-300);
+}
+
+nav ul li:hover {
+    color: var(--color-base-gray-900);
+}
+
+.avatar{
+    width: 4.2rem;
+    height: 4.2rem;
+
+    object-fit: cover;  /* quadrado perfeito */
+
+    border-radius: 50%;
+}
+
+footer p {
+    text-align: center;
+    padding: 1.6rem;
+    font-weight: 600;
+}
+
+/* gallery */
+
+main h1 {
+    padding-top: 1.6rem;
+
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-base-gray-900);
+}
+
+.gallery {
+    margin-top: 3.6rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.item img {
+    width: 100%;
+}
+
+
+
+
+
+
+/*  
+    max-content: é responsável por expandir o conteudo ao máximo, conforme os elementos vão sendo
+    adcionados dentro das caixas. 
+
+    width: min(112rem, 100%) -> nos diz que o conteudo se transforma em 100% ao estar com 1120px, 
+    depois disso ele fica fixo 
+
+    overflow-y -> faz com que o scrool do mouse fique na direção eixo y, e somente no conteudo
+    desejado, não para a página inteira;
+    scrollbar-gutter: stable both-edges -> dessa forma o scrool não ocupará um espaço ná viewport.
+
+    para a váriavel, não chama-se a informação, mas a caixa var no elemento que eu for aplicar ela.
+
+    o elemento com flex: 1 ocupará todo o conteudo.
