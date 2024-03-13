@@ -13,6 +13,7 @@
     --color-base-gray-300: #8d8d99 ;
     --color-base-gray-900: #202024 ;
     --color-base-font : #3D3D3D ;
+    --color-base-font-footer: #323238;
 }
 
 html,
@@ -59,7 +60,7 @@ ul  {
 }
 
 header form {
-    flex: 1;
+    flex: 1;  
 }
 
 .input-wrapper label { 
@@ -96,6 +97,7 @@ nav ul {
 
 nav ul li:hover {
     color: var(--color-base-gray-900);
+    cursor: pointer;
 }
 
 .avatar{
@@ -109,8 +111,11 @@ nav ul li:hover {
 
 footer p {
     text-align: center;
-    padding: 1.6rem;
+    padding: 2.9rem 1.6rem;
+
     font-weight: 600;
+
+    color: var(--color-base-font-footer);
 }
 
 /* gallery */
@@ -123,15 +128,44 @@ main h1 {
     color: var(--color-base-gray-900);
 }
 
+.item {
+    background-color: var(--color-base-white);
+    border-radius: .8rem;
+    overflow: hidden;
+}
+
+.details {
+    padding: 2.2rem 2.2rem 1.2rem;
+
+    font-size: 1.8rem;
+}
+
+.tag {
+    padding: 0 2.2rem 2.2rem;
+}
+
+.tag span {
+    padding: .8rem;
+    
+    font-size: 1.1rem;
+    line-height: 0;
+
+    background-color: var(--color-base-gray-100);
+    border-radius: .6rem;
+}
+
 .gallery {
     margin-top: 3.6rem;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 2.2rem;
 }
 
 .item img {
     width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
 
@@ -153,3 +187,7 @@ main h1 {
     para a váriavel, não chama-se a informação, mas a caixa var no elemento que eu for aplicar ela.
 
     o elemento com flex: 1 ocupará todo o conteudo.
+
+    Proporção de imagem, 16x9 -> aspect ratio, para que a imagem não fique esticada -> object-fit cover 
+
+    overflow = transbordar hidden = esconde o conteudo que está transbordando
