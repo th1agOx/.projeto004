@@ -49,6 +49,7 @@ main{
     background-color: var(--color-base-gray-100);
 }
 
+
 header,
 nav,
 ul  {
@@ -85,7 +86,7 @@ header form {
     font-weight: 600;
 }
 
-.input-wrapper input::placeholder {   /* cor de fonte em 3d */ 
+.input-wrapper input::placeholder {   /* cor de fonte em 3d aspecto diferente de cor */ 
     color: var(--color-base-font);
     opacity: 0.56;
 }
@@ -109,14 +110,35 @@ nav ul li:hover {
     border-radius: 50%;
 }
 
-footer p {
-    text-align: center;
-    padding: 2.9rem 1.6rem;
-
+footer ul, a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 7.2rem;
+    
     font-weight: 600;
-
+    
     color: var(--color-base-font-footer);
+
+    /* transition: all 2s ease-in; */
 }
+
+ul li {
+    list-style: none; 
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+footer ul,a::placeholder {
+    color: var(--color-base-font);
+}
+
+/* footer ul li:hover {
+    transform:translate(-1px);
+} */
+
 
 /* gallery */
 
@@ -136,6 +158,9 @@ main h1 {
 
 .details {
     padding: 2.2rem 2.2rem 1.2rem;
+    background-color: var(--color-base-white);
+    z-index: 1;
+    position: relative;
 
     font-size: 1.8rem;
 }
@@ -166,6 +191,20 @@ main h1 {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
+
+    /* transition-property: all;
+    transition-duration: 200ms;
+    transition-delay: 0s;
+    transition-timing-function: ease-out; */
+
+    transition: all 200ms ease-out
+}
+
+.item img:hover{
+    filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+    transform:scale(1.1) rotate(-2deg);        
+    
+    cursor: pointer;
 }
 
 
@@ -191,3 +230,29 @@ main h1 {
     Proporção de imagem, 16x9 -> aspect ratio, para que a imagem não fique esticada -> object-fit cover 
 
     overflow = transbordar hidden = esconde o conteudo que está transbordando
+
+    ###ANIMAÇÃO :
+
+    filter -> bluer = embaçado ; brightness = brilho ; contrast = contraste de imagem ; 
+    gray-scale = imagem em cinza ; hue-rotate = coloração de imagem ; sepia = envelhecimento
+    deg = medida de filtro em graus
+
+    transformação de imagem, ela pode receber um tamanho maior
+    no rotate negativo, ela rotaciona para esquerda e no positivo para a direita
+
+    transição de imagem suaviza a sua a ação da sua tranformação
+    ela ocorre andes do hover e pode transicionar tanto o filtro quanto sua própria transformação;
+    função cubic-bezier() responsavél pela duração da animação de trancição, 
+
+    Toda animação tem um ponto de partida e um ponto final 
+    0%(from) ponto de partida  100%(to) ponto de chegada, tudo se basea em uma linha do tempo 
+    Calc() faz o calculo das propriedades postas dentro da função
+    Animation-name = nome da animação escrita apos o @keyframes
+    as animações no css são definidas pelo @keyframes + o nome escolhido 
+    Animation-fill-mode = puxa as informações das animações, no 0% ou no 100%
+    Animation-direction
+    com a animação ocorrendo no 50%, o elemento parte até o ponto final, e volta,
+    sem precisar necessáriamente do 0% e do 100%
+    Animation-interation-cont = o numero de eventos acontecerá mais vezes
+
+    
