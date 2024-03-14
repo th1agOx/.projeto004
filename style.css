@@ -8,12 +8,14 @@
 
 :root {
     font-size: 62.5%; 
-    --color-base-white: #FFFFFF;
-    --color-base-gray-100: #f5f5f5 ;
-    --color-base-gray-300: #8d8d99 ;
-    --color-base-gray-900: #202024 ;
-    --color-base-font : #3D3D3D ;
-    --color-base-font-footer: #323238;
+    /* hsl( eixoY cor; eixoX saturação, iluminação */
+    --hue: 100;
+    --color-base-white: hsl(0, 0%, 100%);
+    --color-base-gray-100: hsl(0, 0%, 96%) ;
+    --color-base-gray-300: hsl(var(--hue), 60%, 50%) ;
+    --color-base-gray-900: hsl(var(--hue), 60%, 20%) ;
+    --color-base-font : hsl(0, 0%, 24%) ;
+    --color-base-font-footer: hsl(240, 6%, 21%);
 }
 
 html,
@@ -96,8 +98,13 @@ nav ul {
     color: var(--color-base-gray-300);
 }
 
-nav ul li:hover {
+nav ul span {
+    font-weight: 700;
+
     color: var(--color-base-gray-900);
+}
+
+nav ul:hover {
     cursor: pointer;
 }
 
@@ -119,8 +126,6 @@ footer ul, a {
     font-weight: 600;
     
     color: var(--color-base-font-footer);
-
-    /* transition: all 2s ease-in; */
 }
 
 ul li {
@@ -134,10 +139,6 @@ ul li a {
 footer ul,a::placeholder {
     color: var(--color-base-font);
 }
-
-/* footer ul li:hover {
-    transform:translate(-1px);
-} */
 
 
 /* gallery */
@@ -197,7 +198,8 @@ main h1 {
     transition-delay: 0s;
     transition-timing-function: ease-out; */
 
-    transition: all 200ms ease-out
+    transition: all .2s ease-out;
+    display: block;
 }
 
 .item img:hover{
@@ -206,6 +208,41 @@ main h1 {
     
     cursor: pointer;
 }
+
+header {
+    --startY: -100%;
+    animation: move 200ms; 
+}
+
+footer {
+    --startY: 100% ;
+    animation: move 200ms;
+}
+
+@keyframes move {                   /* animação de texto introduzindo-se no ambiente */
+   from {
+    transform: translateY(var(--startY));
+   }
+}
+
+.item{
+    --delay: .4s;
+    animation: appear .4s var(--delay) backwards;     /*váriavel delei setada em todos os elementos html*/
+}
+
+@keyframes appear {                 /* aparição das images */
+    0% {
+        opacity: 0;
+        transform: scale(0.7);      /* escala de proporção com que a imagem vai aparecendo na viewport */
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+
 
 
 
@@ -231,20 +268,22 @@ main h1 {
 
     overflow = transbordar hidden = esconde o conteudo que está transbordando
 
+
     ###ANIMAÇÃO :
+
 
     filter -> bluer = embaçado ; brightness = brilho ; contrast = contraste de imagem ; 
     gray-scale = imagem em cinza ; hue-rotate = coloração de imagem ; sepia = envelhecimento
     deg = medida de filtro em graus
 
-    transformação de imagem, ela pode receber um tamanho maior
+    Transform -> transformação de imagem, ela pode receber um tamanho maior
     no rotate negativo, ela rotaciona para esquerda e no positivo para a direita
 
-    transição de imagem suaviza a sua a ação da sua tranformação
+    Transition -> transição de imagem suaviza a sua a ação da sua tranformação
     ela ocorre andes do hover e pode transicionar tanto o filtro quanto sua própria transformação;
     função cubic-bezier() responsavél pela duração da animação de trancição, 
 
-    Toda animação tem um ponto de partida e um ponto final 
+    Animation -> Toda animação tem um ponto de partida e um ponto final 
     0%(from) ponto de partida  100%(to) ponto de chegada, tudo se basea em uma linha do tempo 
     Calc() faz o calculo das propriedades postas dentro da função
     Animation-name = nome da animação escrita apos o @keyframes
@@ -254,5 +293,19 @@ main h1 {
     com a animação ocorrendo no 50%, o elemento parte até o ponto final, e volta,
     sem precisar necessáriamente do 0% e do 100%
     Animation-interation-cont = o numero de eventos acontecerá mais vezes
+    é possivel analisar o Animation-time-function ( gráfico de velocidade de animação ), no
+    dev tools.
+    esse temporizador pode ser setado pelo cubic-bazier / cubic-bazier( x1, y1, x2, y2 );
+    ou de uma maneira mais estática, por steps / ease, ease-in, ease-out, ease-in-out, steps, linear
 
-    
+    para que a animação pare ao passar o mouse sobre o elemento -> 
+    :hover - animation-play-state: paused (iniciar e pausar animação)
+
+    ##SHORTHARD ANIMATION:
+
+    - a animação receberá todos os elementos resumidos em uma linha
+
+    animation: name duration fill-mode direction iteration-count time-function 
+    animation: move 1s forwards alternate infinite ease-in 
+
+    backwards puxa as informações do keyframe e passa para o elemento desejado
